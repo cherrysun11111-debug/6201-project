@@ -1,0 +1,90 @@
+{
+  "total_reviews": 420,
+  "risk_counts": {
+    "high": 130,
+    "medium": 200,
+    "low": 90
+  },
+  "complaint_type_counts": {
+    "counterfeit_or_safety": 50,
+    "refund_dispute": 74,
+    "service_failure": 65,
+    "unknown": 8,
+    "damaged_or_wrong_item": 44,
+    "delivery_delay": 101,
+    "minor_negative_or_no_complaint": 78
+  },
+  "abstention_count": 0,
+  "top_priority_queue": [
+    {
+      "id": "R0004",
+      "predicted_risk": "high",
+      "complaint_type": "counterfeit_or_safety",
+      "sla": "Escalate within 2 hours",
+      "review_text": "Order 54050: The adapter sparked when I plugged it in for my laptop adapter. other buyers should be warned. I do not want an automated reply."
+    },
+    {
+      "id": "R0017",
+      "predicted_risk": "high",
+      "complaint_type": "counterfeit_or_safety",
+      "sla": "Escalate within 2 hours",
+      "review_text": "Order 94739: The adapter sparked when I plugged it in for my power bank. I want the listing investigated. I do not want an automated reply."
+    },
+    {
+      "id": "R0025",
+      "predicted_risk": "high",
+      "complaint_type": "counterfeit_or_safety",
+      "sla": "Escalate within 2 hours",
+      "review_text": "I usually like this store, but order 40544: The product looks fake and the serial number is invalid for my power bank. this may be unsafe."
+    },
+    {
+      "id": "R0032",
+      "predicted_risk": "high",
+      "complaint_type": "counterfeit_or_safety",
+      "sla": "Escalate within 2 hours",
+      "review_text": "Order 39574: The product looks fake and the serial number is invalid for my power bank. I want the listing investigated. This may affect whether I buy again."
+    },
+    {
+      "id": "R0043",
+      "predicted_risk": "high",
+      "complaint_type": "counterfeit_or_safety",
+      "sla": "Escalate within 2 hours",
+      "review_text": "Order 48786: The label is different from the listing and may be counterfeit for my skin cream. I want the listing investigated. The product itself is otherwise fine."
+    },
+    {
+      "id": "R0050",
+      "predicted_risk": "high",
+      "complaint_type": "counterfeit_or_safety",
+      "sla": "Escalate within 2 hours",
+      "review_text": "Order 90509: The product looks fake and the serial number is invalid for my baby monitor. this may be unsafe. Please have a real person check this. The product itself is otherwise fine."
+    },
+    {
+      "id": "R0051",
+      "predicted_risk": "high",
+      "complaint_type": "counterfeit_or_safety",
+      "sla": "Escalate within 2 hours",
+      "review_text": "Order 41494: The product looks fake and the serial number is invalid for my power bank. other buyers should be warned. This may affect whether I buy again."
+    },
+    {
+      "id": "R0062",
+      "predicted_risk": "high",
+      "complaint_type": "counterfeit_or_safety",
+      "sla": "Escalate within 2 hours",
+      "review_text": "This is my second order from you. order 16135: The adapter sparked when I plugged it in for my baby monitor. this may be unsafe. Please have a real person check this."
+    },
+    {
+      "id": "R0063",
+      "predicted_risk": "high",
+      "complaint_type": "counterfeit_or_safety",
+      "sla": "Escalate within 2 hours",
+      "review_text": "Not sure who is responsible, but order 37573: The label is different from the listing and may be counterfeit for my skin cream. other buyers should be warned."
+    },
+    {
+      "id": "R0069",
+      "predicted_risk": "high",
+      "complaint_type": "counterfeit_or_safety",
+      "sla": "Escalate within 2 hours",
+      "review_text": "Order 40674: The adapter sparked when I plugged it in for my skin cream. other buyers should be warned. Please have a real person check this. The product itself is otherwise fine."
+    }
+  ]
+}

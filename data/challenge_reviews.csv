@@ -1,0 +1,21 @@
+id,review_text,risk,complaint_type
+C001,"I like the design, but the charger became hot enough that I unplugged it right away. I do not want a voucher; I want someone to check if this is safe.",high,counterfeit_or_safety
+C002,"The courier says delivered, my lobby camera shows nothing, and support keeps telling me to wait another day.",medium,delivery_delay
+C003,"Not a disaster, but the medium shirt came as small and I need it for an event this weekend.",medium,damaged_or_wrong_item
+C004,"Packaging looked cheap and the QR code on the cream box does not scan. I am worried it is not genuine.",high,counterfeit_or_safety
+C005,"The item is fine, just a bit darker than the photo. I will keep it.",low,minor_negative_or_no_complaint
+C006,"I paid once, my bank shows two charges, and the chat bot keeps saying there is no order.",high,refund_dispute
+C007,"Trackng has not updated for nine days. Maybe it is the courier, but nobody can tell me where the parcel is.",medium,delivery_delay
+C008,"The blender arrived with one missing blade and a cracked lid. Please send the missing parts.",medium,damaged_or_wrong_item
+C009,"Great price and it works. The box was slightly dented but no issue.",low,minor_negative_or_no_complaint
+C010,"I am not asking for a refnd yet, but the seller closed my case twice without reading the photos.",medium,service_failure
+C011,"The battery swelled after charging overnight. I have stopped using it and need a human to respond.",high,counterfeit_or_safety
+C012,"Customer service promised a callback on Monday and Wednesday. Nobody called either time.",medium,service_failure
+C013,"This product is okay, though the instructions could be clearer.",low,minor_negative_or_no_complaint
+C014,"The serial number is rejected on the brand website and the seller says that is normal. That does not sound normal.",high,counterfeit_or_safety
+C015,"The package is late, but I got a clear update from the courier and can wait.",low,minor_negative_or_no_complaint
+C016,"The refund page says pending for 18 days. I am close to calling my card issuer.",high,refund_dispute
+C017,"Support answered quickly, but the answer was a template and did not address the wrong item.",medium,damaged_or_wrong_item
+C018,"The headphones sound good. I wish the cable was longer.",low,minor_negative_or_no_complaint
+C019,"The adapter made a pop sound and left a burning smell. Please remove this listing until checked.",high,counterfeit_or_safety
+C020,"The courier delivered it to the wrong block and the seller told me to ask my neighbors.",medium,delivery_delay

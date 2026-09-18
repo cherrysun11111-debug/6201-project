@@ -1,0 +1,18 @@
+# Business And Technical Trade-Off Analysis
+
+The selected problem is e-commerce complaint risk triage for small sellers. The business value is prioritization: a support lead should notice safety, refund, counterfeit, delivery-loss, and service-failure complaints before they become chargebacks or public escalations. The system deliberately avoids broad sentiment analysis because a mildly negative review and a product-safety complaint require different action.
+
+The non-AI baseline is a keyword rule set. It is cheap, transparent, fast, and easy to audit. It flags terms such as refund, chargeback, fake, sparked, tracking, missing, and support. This baseline is useful because it creates a measurable reference point and may be sufficient for obvious cases. Its weakness is brittleness: it misses paraphrases, typos, mixed sentiment, and complaints that imply urgency without using the expected keyword.
+
+The implemented model is a multinomial naive Bayes classifier written with the Python standard library. I chose this instead of a heavy ML framework so the repository runs on another machine without setup friction. It owns the core classification logic and keeps inference local, which is useful for privacy and cost. The trade-off is model expressiveness: it is less powerful than transformer-based text classifiers and depends on the training distribution.
+
+The current data strategy uses reproducible synthetic data plus a hand-written challenge set. Synthetic data is acceptable for the first build because no personal customer data is required, the generator is committed, and the labels are known before evaluation. Its ceiling is also clear: the model can overfit the generator's language. To reduce that risk, the project reports two scores: a synthetic held-out score and a harder challenge-set score with ambiguous, mixed, and typo-heavy reviews.
+
+The current results show this distinction. On the synthetic held-out split, the model reaches macro F1 of 1.000 and the keyword baseline reaches 0.907. On the challenge set, the model reaches 0.739 while the baseline reaches 0.429. The lower challenge score is important, not embarrassing: it shows where the system needs more realistic data before deployment.
+
+A hosted LLM could improve explanation quality and response drafting. I would rent that layer rather than build it, because the project value is complaint triage and workflow design, not training a foundation model. The LLM should not replace the classifier in safety or refund decisions. A safer future design is hybrid: local classifier for risk and routing, retrieval over store policy for grounding, and an LLM for drafting a customer-response frame with citations to policy snippets.
+
+The build-versus-buy split is therefore: own the data generator, baseline, classifier, evaluation, abstention logic, batch queue, and demo interface; rent any future LLM or embedding model; use local files for the first vector or policy store. This keeps cost low. The current implementation has no per-call API cost. A future LLM layer would add token cost and latency, so it should be optional and measured per review.
+
+Risks are handled as design constraints. Silent failure is the main risk: a high-risk complaint may be marked low. The mitigation is to report confusion matrices, maintain a challenge set, show confidence, and route low-confidence or sensitive categories to human review. Over-automation is another risk, so the tool outputs recommendations only. Privacy risk is controlled by using synthetic data now and requiring anonymization or consent before real customer messages enter the repository.
+
