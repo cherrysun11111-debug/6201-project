@@ -19,3 +19,23 @@ C017,"Support answered quickly, but the answer was a template and did not addres
 C018,"The headphones sound good. I wish the cable was longer.",low,minor_negative_or_no_complaint
 C019,"The adapter made a pop sound and left a burning smell. Please remove this listing until checked.",high,counterfeit_or_safety
 C020,"The courier delivered it to the wrong block and the seller told me to ask my neighbors.",medium,delivery_delay
+C021,"The stroller brake slipped once on a slope. I do not know if I assembled it wrong, but please check this before another parent buys it.",high,counterfeit_or_safety
+C022,"The refund button disappeared after the seller asked me to close the case. I still have no money back.",high,refund_dispute
+C023,"The parcel arrived two days late, but customer service gave me a useful update and the item works.",low,minor_negative_or_no_complaint
+C024,"I received a blue kettle instead of the red one. It works, but it is not what I ordered.",medium,damaged_or_wrong_item
+C025,"The face cream smells different from the sample in store, and the seal was already broken.",high,counterfeit_or_safety
+C026,"Support solved the issue after one message. Leaving this here so the team knows the box was bent.",low,minor_negative_or_no_complaint
+C027,"I have sent photos of the cracked screen twice. The agent keeps asking for the same photos again.",medium,service_failure
+C028,"The package is marked as delivered to reception, but reception has no record and the seller closed the chat.",medium,delivery_delay
+C029,"This is not urgent, but the manual is missing and setup took longer than expected.",low,minor_negative_or_no_complaint
+C030,"The power bank became swollen after the first charge. I stopped using it and want the listing checked.",high,counterfeit_or_safety
+C031,"I was promised a replacment part, but the ticket has been silent for eight days.",medium,service_failure
+C032,"The refund is small, but the seller says I returned an empty box, which is not true.",high,refund_dispute
+C033,"The shoes are comfortable. Delivery was slower than the estimate, but I am keeping them.",low,minor_negative_or_no_complaint
+C034,"The item page says original brand, but the logo stitching and packaging look different from my old one.",high,counterfeit_or_safety
+C035,"The courier changed the delivery date four times and now says the address is incomplete.",medium,delivery_delay
+C036,"One screw is missing from the desk kit. I can assemble most of it, but need the part mailed.",medium,damaged_or_wrong_item
+C037,"The lamp flickered once, then worked normally. I am only reporting it in case others saw the same thing.",low,minor_negative_or_no_complaint
+C038,"The chat bot says my warranty expired yesterday, but I opened this case last week.",medium,service_failure
+C039,"I got an email saying my refund was approved, but the amount is not back after 21 days.",high,refund_dispute
+C040,"The bottle is smaller than expected, but the size is listed correctly. That was my mistake.",low,minor_negative_or_no_complaint

@@ -56,9 +56,10 @@ Click Priority queue. Show that the system sorts the sample CSV into a triage qu
 Open `reports/evaluation.json`. Mention both scores:
 
 - Synthetic held-out split: model macro F1 1.000, baseline 0.907.
-- Challenge set: model macro F1 0.739, baseline 0.429.
+- Challenge set: model macro F1 0.675, baseline 0.454.
+- Leakage probe after masking obvious risk keywords: model macro F1 0.550, baseline 0.144.
 
-Explain that the challenge set is intentionally harder and reveals the limitation of synthetic data.
+Explain that the challenge set is intentionally harder and reveals the limitation of synthetic data. Also mention that the leakage probe checks whether the system depends too heavily on shortcut words such as refund, fake, or tracking.
 
 ## 8. Responsible Use
 
@@ -72,4 +73,3 @@ Next steps:
 - Add RAG over store return and safety policies.
 - Add optional LLM drafting with policy citations.
 - Track human corrections and retrain.
-

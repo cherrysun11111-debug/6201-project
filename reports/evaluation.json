@@ -7,6 +7,7 @@
   ],
   "heldout_synthetic": {
     "rows": 105,
+    "abstain_threshold": 0.65,
     "baseline": {
       "macro_f1": 0.90736567141512,
       "per_label": {
@@ -86,95 +87,217 @@
           "high": 36
         }
       },
+      "abstention_count": 0,
       "abstention_rate": 0.0,
+      "abstention_would_have_been_wrong": 0,
+      "abstention_precision": 0.0,
       "beats_baseline_by": 0.09263432858487997
     }
   },
   "challenge_set": {
     "dataset": "C:\\Users\\HP\\Documents\\Codex\\2026-09-18\\w\\ecommerce_complaint_risk\\data\\challenge_reviews.csv",
-    "rows": 20,
+    "rows": 40,
+    "abstain_threshold": 0.65,
     "baseline": {
-      "macro_f1": 0.42881241565452094,
+      "macro_f1": 0.45432098765432105,
       "per_label": {
         "low": {
-          "precision": 0.2857142857142857,
-          "recall": 0.8,
-          "f1": 0.4210526315789473,
-          "support": 5
+          "precision": 0.2916666666666667,
+          "recall": 0.6363636363636364,
+          "f1": 0.4,
+          "support": 11
         },
         "medium": {
-          "precision": 0.8,
-          "recall": 0.5,
-          "f1": 0.6153846153846154,
-          "support": 8
+          "precision": 0.5833333333333334,
+          "recall": 0.4666666666666667,
+          "f1": 0.5185185185185186,
+          "support": 15
         },
         "high": {
           "precision": 1.0,
-          "recall": 0.14285714285714285,
-          "f1": 0.25,
-          "support": 7
+          "recall": 0.2857142857142857,
+          "f1": 0.4444444444444445,
+          "support": 14
         }
       },
       "confusion_matrix": {
         "low": {
-          "low": 4,
-          "medium": 1,
-          "high": 0
-        },
-        "medium": {
-          "low": 4,
+          "low": 7,
           "medium": 4,
           "high": 0
         },
-        "high": {
-          "low": 6,
-          "medium": 0,
-          "high": 1
-        }
-      }
-    },
-    "model": {
-      "macro_f1": 0.7392191142191141,
-      "per_label": {
-        "low": {
-          "precision": 0.5,
-          "recall": 0.8,
-          "f1": 0.6153846153846154,
-          "support": 5
-        },
         "medium": {
-          "precision": 0.875,
-          "recall": 0.875,
-          "f1": 0.875,
-          "support": 8
-        },
-        "high": {
-          "precision": 1.0,
-          "recall": 0.5714285714285714,
-          "f1": 0.7272727272727273,
-          "support": 7
-        }
-      },
-      "confusion_matrix": {
-        "low": {
-          "low": 4,
-          "medium": 1,
-          "high": 0
-        },
-        "medium": {
-          "low": 1,
+          "low": 8,
           "medium": 7,
           "high": 0
         },
         "high": {
-          "low": 3,
-          "medium": 0,
+          "low": 9,
+          "medium": 1,
           "high": 4
         }
+      }
+    },
+    "model": {
+      "macro_f1": 0.6746031746031745,
+      "per_label": {
+        "low": {
+          "precision": 0.5294117647058824,
+          "recall": 0.8181818181818182,
+          "f1": 0.6428571428571428,
+          "support": 11
+        },
+        "medium": {
+          "precision": 0.7692307692307693,
+          "recall": 0.6666666666666666,
+          "f1": 0.7142857142857142,
+          "support": 15
+        },
+        "high": {
+          "precision": 0.8,
+          "recall": 0.5714285714285714,
+          "f1": 0.6666666666666666,
+          "support": 14
+        }
       },
-      "abstention_rate": 0.05,
-      "beats_baseline_by": 0.3104066985645932
+      "confusion_matrix": {
+        "low": {
+          "low": 9,
+          "medium": 2,
+          "high": 0
+        },
+        "medium": {
+          "low": 3,
+          "medium": 10,
+          "high": 2
+        },
+        "high": {
+          "low": 5,
+          "medium": 1,
+          "high": 8
+        }
+      },
+      "abstention_count": 3,
+      "abstention_rate": 0.075,
+      "abstention_would_have_been_wrong": 2,
+      "abstention_precision": 0.6666666666666666,
+      "beats_baseline_by": 0.2202821869488535
     },
     "note": "Hand-written ambiguous cases used to expose synthetic-data ceiling."
+  },
+  "leakage_probe": {
+    "method": "Mask obvious risk and complaint keywords, then re-run baseline and model.",
+    "masked_terms_include": [
+      "agent",
+      "cancel",
+      "chargeback",
+      "charged",
+      "counterfeit",
+      "cracked",
+      "crushed",
+      "delivered",
+      "escalate",
+      "fake",
+      "fraudulent",
+      "investigated",
+      "late",
+      "missing",
+      "overheated",
+      "refund",
+      "replacement",
+      "scratches",
+      "sparked",
+      "support",
+      "tracking",
+      "unsafe",
+      "warned",
+      "wrong"
+    ],
+    "rows": 40,
+    "abstain_threshold": 0.65,
+    "baseline": {
+      "macro_f1": 0.14379084967320263,
+      "per_label": {
+        "low": {
+          "precision": 0.275,
+          "recall": 1.0,
+          "f1": 0.4313725490196079,
+          "support": 11
+        },
+        "medium": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 15
+        },
+        "high": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 14
+        }
+      },
+      "confusion_matrix": {
+        "low": {
+          "low": 11,
+          "medium": 0,
+          "high": 0
+        },
+        "medium": {
+          "low": 15,
+          "medium": 0,
+          "high": 0
+        },
+        "high": {
+          "low": 14,
+          "medium": 0,
+          "high": 0
+        }
+      }
+    },
+    "model": {
+      "macro_f1": 0.5503030303030303,
+      "per_label": {
+        "low": {
+          "precision": 0.4090909090909091,
+          "recall": 0.8181818181818182,
+          "f1": 0.5454545454545455,
+          "support": 11
+        },
+        "medium": {
+          "precision": 0.7,
+          "recall": 0.4666666666666667,
+          "f1": 0.56,
+          "support": 15
+        },
+        "high": {
+          "precision": 0.75,
+          "recall": 0.42857142857142855,
+          "f1": 0.5454545454545454,
+          "support": 14
+        }
+      },
+      "confusion_matrix": {
+        "low": {
+          "low": 9,
+          "medium": 2,
+          "high": 0
+        },
+        "medium": {
+          "low": 6,
+          "medium": 7,
+          "high": 2
+        },
+        "high": {
+          "low": 7,
+          "medium": 1,
+          "high": 6
+        }
+      },
+      "abstention_count": 3,
+      "abstention_rate": 0.075,
+      "abstention_would_have_been_wrong": 3,
+      "abstention_precision": 1.0
+    }
   }
 }

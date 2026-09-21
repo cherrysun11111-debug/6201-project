@@ -12,4 +12,3 @@ python -m unittest discover -s tests
 
 Write-Host ""
 Write-Host "Pipeline complete. Reports are in the reports directory."
-
