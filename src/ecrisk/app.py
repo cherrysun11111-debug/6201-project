@@ -206,8 +206,9 @@ def render_result(prediction: dict[str, object]) -> str:
 
 
 def render_queue_page() -> str:
-    rows = analyze_rows(read_reviews(DEFAULT_DATA))[:25]
-    summary = summarize(rows)
+    all_rows = analyze_rows(read_reviews(DEFAULT_DATA))
+    rows = all_rows[:25]
+    summary = summarize(all_rows)
     risk_counts = summary["risk_counts"]
     type_counts = summary["complaint_type_counts"]
     body_rows = "".join(
@@ -247,7 +248,7 @@ def render_queue_page() -> str:
   <section class="wide">
     <h2>Batch Triage Summary</h2>
     <div class="score">
-      <div class="metric"><small>Total in view</small><strong>{len(rows)}</strong></div>
+      <div class="metric"><small>Total analyzed</small><strong>{len(all_rows)}</strong></div>
       <div class="metric"><small>High priority</small><strong class="risk-high">{risk_counts.get('high', 0)}</strong></div>
       <div class="metric"><small>Abstentions</small><strong>{summary['abstention_count']}</strong></div>
     </div>
@@ -256,6 +257,7 @@ def render_queue_page() -> str:
   </section>
   <section class="wide">
     <h2>Top Priority Reviews</h2>
+    <div class="hint">Showing the first {len(rows)} reviews after sorting all analyzed reviews by risk priority. The 40-row challenge set is used in evaluation, not this operational queue.</div>
     <table>
       <thead><tr><th>ID</th><th>Risk</th><th>Type</th><th>SLA</th><th>Review</th></tr></thead>
       <tbody>{body_rows}</tbody>
