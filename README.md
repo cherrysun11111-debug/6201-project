@@ -1,25 +1,25 @@
 # E-commerce Complaint Risk Analysis
 
-This project detects complaint risk in e-commerce reviews and support messages. The primary user is a small marketplace support lead who needs to triage risky complaints before they become refund disputes, safety incidents, or public reputation problems.
+This project detects complaint risk in e-commerce reviews and support messages. I built it for a small marketplace support lead who needs to find risky complaints before they turn into refund disputes, safety incidents, repeated support contacts, or public escalation.
 
 ## Problem
 
-Small e-commerce teams receive many short customer reviews and support messages. A support lead reviewing even 100 messages per day has only seconds to decide which cases need escalation, and a missed safety or refund complaint can become a chargeback, public escalation, or repeat support contact. The business problem is not general sentiment analysis; it is identifying which messages need faster human attention. The system classifies each review as `low`, `medium`, or `high` risk, identifies the likely complaint type, extracts evidence terms, assigns an SLA, and returns a response frame for the support team.
+Small e-commerce teams receive many short customer reviews and support messages. If a support lead reviews 100 messages in a day, even a quick 30-second scan per message takes almost an hour before any real resolution work starts. The business problem is not general sentiment analysis; it is deciding which messages need faster human attention. The system classifies each review as `low`, `medium`, or `high` risk, identifies the likely complaint type, extracts evidence terms, assigns an SLA, and returns a response frame for the support team.
 
-Closest existing tools include Zendesk, Shopify Inbox, Gorgias, and marketplace review dashboards. Those tools manage tickets and conversations, but this project focuses on a transparent, local, evaluated risk triage queue that compares against a non-AI baseline and can run without sending customer text to a hosted service.
+Closest existing tools include Zendesk, Shopify Inbox, Gorgias, and marketplace review dashboards. Those tools manage tickets and conversations well. This project has a narrower goal: a transparent local triage queue with a named baseline, reproducible data, challenge cases, leakage checks, and explicit evaluation.
 
 Out of scope: automated refunds, final customer replies, legal decisions, and safety-critical decisions without human confirmation.
 
 ## AI Choice
 
-The current AI decision is narrow machine learning plus deterministic rules:
+The current decision path is narrow machine learning plus deterministic rules:
 
 - A keyword baseline for comparison.
 - A pure Python multinomial naive Bayes model for risk classification.
 - Deterministic abstention when confidence is below threshold.
 - Rule-based complaint type detection for transparent explanations.
 
-This is intentionally not an agent: the task is bounded classification and routing, not autonomous multi-step tool use. It also intentionally does not put an LLM/RAG layer in the current decision path, because refund and safety triage needs auditable behavior, stable local cost, and reproducible evaluation. A future LLM/RAG layer would be rented only for policy-grounded response drafting, not for final risk decisions.
+This is intentionally not an agent: the task is bounded classification and routing, not autonomous multi-step tool use. I also did not put an LLM/RAG layer in the current decision path, because refund and safety triage needs auditable behavior, stable local cost, and reproducible evaluation. A future LLM/RAG layer would be useful for policy-grounded response drafting, not for final risk decisions.
 
 ## Data
 

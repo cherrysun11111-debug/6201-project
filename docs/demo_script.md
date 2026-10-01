@@ -2,35 +2,41 @@
 
 ## 1. Opening
 
-This project helps a small e-commerce support lead prioritize customer complaints. The goal is not to replace customer service agents. The goal is to decide which messages need fast human review.
+This project is called ComplaintRisk Queue. It helps a small e-commerce support lead decide which customer complaints should be handled first.
 
 ## 2. Problem
 
-Show three messages:
+Start with three examples:
 
 - "Great product and fast delivery."
 - "Tracking is late and the courier marked it delivered, but nothing arrived."
 - "The adapter sparked and the product looks fake. I want a refund."
 
-Explain that all are customer messages, but only the third is urgent because it combines safety, authenticity, and refund risk.
+The point is that all three are customer messages, but they should not be handled with the same urgency. The third one combines safety, authenticity, and refund risk, so it should move to the front of the queue.
 
-## 3. Baseline
+## 3. Repository
 
-Explain the keyword baseline. It is fast and transparent, but brittle. It catches obvious words such as refund or fake, but struggles with paraphrase, typos, and mixed reviews.
+Show the GitHub repository. Point out:
 
-## 4. Model And Workflow
+- `src/ecrisk`: source code.
+- `data`: synthetic dataset and challenge set.
+- `reports`: evaluation and batch-analysis outputs.
+- `docs`: report, data explainer, evals explainer, product documentation, and demo notes.
+- `scripts`: run scripts for the full pipeline and demo.
+
+## 4. Pipeline
 
 Run:
 
-```powershell
-$env:PYTHONPATH="src"
-python -m ecrisk.evaluate
-python -m ecrisk.app
+```bash
+python scripts/run_pipeline.py
 ```
 
-Open `http://127.0.0.1:8000`.
+Say that this regenerates data, trains the model, runs evaluation, creates batch reports, and runs unit tests. This shows the project is a reproducible workflow, not just a web page.
 
 ## 5. Single Review Demo
+
+Open `http://127.0.0.1:8000`.
 
 Paste:
 
@@ -38,38 +44,37 @@ Paste:
 The adapter sparked and the product looks fake. I want a refund.
 ```
 
-Point out:
+Point out the result:
 
 - Risk: high
 - Complaint type: counterfeit_or_safety
-- Evidence terms
-- SLA
-- Recommended action
+- Evidence terms such as sparked, fake, and refund
+- SLA: escalate within two hours
+- Recommended action and customer reply frame
 - Responsible-use note
+
+Say clearly that the tool does not automatically refund, penalize sellers, or remove listings. It only helps a human decide what to inspect first.
 
 ## 6. Batch Queue Demo
 
-Click Priority queue. Show that the system sorts the sample CSV into a triage queue and surfaces high-risk cases first. Explain that this is closer to the real support-lead workflow than a single classifier form.
+Open `http://127.0.0.1:8000/queue`.
+
+Explain that this is closer to the real workflow. A support lead normally has a queue of messages, not one isolated review. The page summarizes all analyzed reviews and displays the top-priority cases first.
 
 ## 7. Evaluation
 
-Open `reports/evaluation.json`. Mention both scores:
+Open `reports/evaluation.json`.
+
+Mention:
 
 - Synthetic held-out split: model macro F1 1.000, baseline 0.907.
 - Challenge set: model macro F1 0.675, baseline 0.454.
-- Leakage probe after masking obvious risk keywords: model macro F1 0.550, baseline 0.144.
+- Leakage probe: model macro F1 0.550, baseline 0.144.
+- Abstention: 3 of 40 challenge cases, with 2 of those 3 otherwise wrong.
 
-Explain that the challenge set is intentionally harder and reveals the limitation of synthetic data. Also mention that the leakage probe checks whether the system depends too heavily on shortcut words such as refund, fake, or tracking.
+Explain that the synthetic score proves the pipeline works, but the challenge set and leakage probe are more honest about limitations.
 
-## 8. Responsible Use
+## 8. Close
 
-State that the tool does not automatically refund, delist, or penalize sellers. High-risk and low-confidence outputs require human confirmation.
+The current system is not production-ready, mainly because the data is still synthetic. The next step would be real consented or licensed review data, followed by RAG over store policies and optional LLM response drafting. The main contribution of this version is a transparent end-to-end triage workflow with baseline comparison, evaluation, leakage testing, and responsible-use guardrails.
 
-## 9. Future Work
-
-Next steps:
-
-- Add real consented or public review data.
-- Add RAG over store return and safety policies.
-- Add optional LLM drafting with policy citations.
-- Track human corrections and retrain.
