@@ -1,3 +1,5 @@
+"""Batch analysis pipeline that turns review CSV rows into a priority queue."""
+
 import argparse
 import csv
 import json

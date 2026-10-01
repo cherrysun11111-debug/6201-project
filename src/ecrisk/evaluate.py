@@ -1,3 +1,5 @@
+"""Evaluation routines for baseline comparison, challenge set, leakage, and abstention."""
+
 import argparse
 import json
 from pathlib import Path

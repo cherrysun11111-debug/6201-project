@@ -1,3 +1,5 @@
+"""Synthetic and reproducible e-commerce review data generator."""
+
 import argparse
 import csv
 import random

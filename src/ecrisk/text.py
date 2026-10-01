@@ -1,3 +1,5 @@
+"""Text normalization utilities shared by the classifier and rule baseline."""
+
 import re
 
 
@@ -20,4 +22,3 @@ def normalize_label(label: str) -> str:
     if label not in {"low", "medium", "high"}:
         raise ValueError(f"Unknown risk label: {label}")
     return label
-

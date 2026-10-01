@@ -1,3 +1,5 @@
+"""Local web demo for single-review triage and batch priority queue views."""
+
 from html import escape
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import parse_qs

@@ -1,3 +1,5 @@
+"""Keyword baseline and transparent complaint-type rules for comparison."""
+
 from ecrisk.text import tokenize
 
 

@@ -1,3 +1,5 @@
+"""Small metric helpers for confusion matrices and macro F1 reporting."""
+
 from collections import Counter
 
 
@@ -24,4 +26,3 @@ def per_label_scores(y_true: list[str], y_pred: list[str], labels: tuple[str, ..
 def macro_f1(y_true: list[str], y_pred: list[str], labels: tuple[str, ...]) -> float:
     scores = per_label_scores(y_true, y_pred, labels)
     return sum(scores[label]["f1"] for label in labels) / len(labels)
-

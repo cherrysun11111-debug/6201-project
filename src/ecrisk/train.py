@@ -1,3 +1,5 @@
+"""Training entry point for the local complaint-risk model."""
+
 import argparse
 import csv
 import random
@@ -43,4 +45,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

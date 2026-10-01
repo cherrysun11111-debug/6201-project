@@ -1,3 +1,5 @@
+"""Single-review prediction API and command-line entry point."""
+
 import argparse
 import json
 from pathlib import Path

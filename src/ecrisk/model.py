@@ -1,3 +1,5 @@
+"""Pure-Python multinomial naive Bayes risk classifier."""
+
 import json
 import math
 from collections import Counter, defaultdict
@@ -77,4 +79,3 @@ class NaiveBayesRiskModel:
         model.total_tokens = Counter(payload["total_tokens"])
         model.vocabulary = set(payload["vocabulary"])
         return model
-

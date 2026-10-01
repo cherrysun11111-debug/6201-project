@@ -116,6 +116,14 @@ src/ecrisk/                   Application source code
 tests/                        Unit tests
 ```
 
+Key documentation files:
+
+- `docs/final_report.md`: final report with outcome critique, metrics critique, limitations, rough edges, and future path.
+- `docs/product_documentation.md`: persona, input, output, architecture, external intelligence, and metrics target/reached.
+- `docs/data_explainer.md`: dataset schema, generation process, privacy/access notes, and limitations.
+- `docs/evals_explainer.md`: baseline, metrics, challenge set, leakage probe, and abstention explanation.
+- `docs/demo_script.md`: demo flow and talking points.
+
 ## GitHub Submission Checklist
 
 - Run `.\scripts\run_pipeline.ps1`.
